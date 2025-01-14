@@ -1,35 +1,42 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
+import Card from "./components/Card";
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const date = new Date();
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+      <header className="flex justify-between">
+        <span className="text-3xl">
+          <h1>Evolve</h1>
+        </span>
+        <span>
+          <h2>Account</h2>
+        </span>
+      </header>
+      <div className="flex flex-col place-items-center justify-evenly">
+        <textarea
+          className="border border-blue-600 p-4"
+          name=""
+          id=""
+          cols={50}
+          rows={5}
+          placeholder="Add a note..."
+        ></textarea>
+        <button className="bg-slate-200 text-red-500 px-2 py-1 mb-12 ml-10">
+          Add
         </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <div className="border border-cyan-500 p-4 grid grid-cols-3">
+        <Card
+          title="First note"
+          content="this is a test text. something is going to be a bit unnecessary in terms of gouging out the main advantage in this field of nootropical agenda which internships agree upon."
+          createdAt={date}
+          id="1"
+          completed
+        />
+      </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
